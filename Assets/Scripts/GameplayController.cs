@@ -282,7 +282,15 @@ public class GameplayController : MonoBehaviour
     {
         hudController.inGameloadingPanel.SetActive(true);
         yield return new WaitForSecondsRealtime(loadingTime);
-        SetCurrentLevel(GetCurrentLevel() + 1);
+        if (GetCurrentLevel()<9)
+        {
+            SetCurrentLevel(GetCurrentLevel() + 1);
+        }
+        else
+        {
+            SetCurrentLevel(0);
+        }
+        
         SceneManager.LoadScene(1);
     }
 

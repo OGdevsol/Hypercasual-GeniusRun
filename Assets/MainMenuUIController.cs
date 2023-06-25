@@ -14,6 +14,7 @@ public class MainMenuUIController : MonoBehaviour
  private void Awake()
  {
      UnlockLevels();
+    // PlayerPrefs.SetInt("MaxLevel", 9);
      Debug.LogError(GetMaxLevelReached());
  }
 
