@@ -311,6 +311,8 @@ public class GameplayController : MonoBehaviour
         {
             AudioListener.volume = 1;
             PlayerPrefs.SetInt("Volume",1);
+            hudController.volToggle.GetComponent<Toggle>().isOn = true;
+
          //   soundButton.GetComponent<Image>().sprite = UnMute;
 
             //  UnMute.SetActive(true);
@@ -321,6 +323,8 @@ public class GameplayController : MonoBehaviour
         {
             AudioListener.volume = 0;
             PlayerPrefs.SetInt("Volume",0);
+            hudController.volToggle.GetComponent<Toggle>().isOn = false;
+
            // soundButton.GetComponent<Image>().sprite = Mute;
             //  Mute.SetActive(true);
             // UnMute.SetActive(false);
