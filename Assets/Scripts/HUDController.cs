@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 public class HUDController : MonoBehaviour
 {
@@ -16,9 +17,12 @@ public class HUDController : MonoBehaviour
     public TMP_Text correctAnswersValue;
     public TMP_Text wrongAnswersValue;
 
+    public GameObject volToggle;
+
     public virtual void Pause(GameObject pausePanelParam)
     {
         Time.timeScale = 0;
+        GameplayController.instance.runningSound.Stop();
         pausePanelParam.SetActive(true);
         
     }
@@ -26,6 +30,9 @@ public class HUDController : MonoBehaviour
     public virtual void Resume(GameObject pausePanelParam)
     {
         Time.timeScale = 1;
+        GameplayController.instance.runningSound.Play();
+        
+        GameplayController.instance.CheckVolumeSettings();
         pausePanelParam.SetActive(false);
         
     }

@@ -6,6 +6,8 @@ using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
+using Toggle = UnityEngine.UI.Toggle;
 
 public class GameplayController : MonoBehaviour
 {
@@ -29,6 +31,7 @@ public class GameplayController : MonoBehaviour
     public AudioSource loseSound;
     public AudioSource onAnswerCorrectSound;
     public AudioSource onAnswerWrongSound;
+    public AudioSource runningSound;
     public AudioSource explosionSound;
     #endregion
    
@@ -55,6 +58,7 @@ public class GameplayController : MonoBehaviour
 
         Debug.Log("QuestionsPref" + PlayerPrefs.GetFloat("LevelQuestions"));
         Time.timeScale = 1;
+        CheckVolumeSettings();
     }
 
     void SetUpLevelQuestions()
@@ -163,8 +167,10 @@ public class GameplayController : MonoBehaviour
         Instantiate(onBikeSitParticle, levelsData[GetCurrentLevel()].levelSittingPlayer.transform.position + offSet,
             levelsData[GetCurrentLevel()].levelSittingPlayer.transform.rotation);
         DisableQuestions();
+        runningSound.Stop();
         hudController.pauseButton.SetActive(false);
         StartCoroutine(ActivatePanel(hudController.winPanel,winSound));
+        
       
     }
 
@@ -175,6 +181,7 @@ public class GameplayController : MonoBehaviour
         FindObjectOfType<PlayerMovement>().enabled = false;
         FindObjectOfType<PathFollower>().enabled = false;
         DisableQuestions();
+        runningSound.Stop();
         hudController.pauseButton.SetActive(false);
         StartCoroutine(ActivatePanel(hudController.losePanel,loseSound));
     }
@@ -298,7 +305,63 @@ public class GameplayController : MonoBehaviour
 
     #region SoundManagement
 
-    
+    public void volumebuttonclick()
+    {
+        if (AudioListener.volume==0)
+        {
+            AudioListener.volume = 1;
+            PlayerPrefs.SetInt("Volume",1);
+         //   soundButton.GetComponent<Image>().sprite = UnMute;
+
+            //  UnMute.SetActive(true);
+            //  Mute.SetActive(false);
+
+        }
+        else if (AudioListener.volume == 1)
+        {
+            AudioListener.volume = 0;
+            PlayerPrefs.SetInt("Volume",0);
+           // soundButton.GetComponent<Image>().sprite = Mute;
+            //  Mute.SetActive(true);
+            // UnMute.SetActive(false);
+        }
+        
+    }
+
+    public void CheckVolumeSettings()
+    {
+
+        if (!PlayerPrefs.HasKey("Volume"))
+        {
+            AudioListener.volume = 1;
+            PlayerPrefs.SetInt("Volume",1);
+            hudController.volToggle.GetComponent<Toggle>().isOn = true;
+            //   soundButton.GetComponent<Image>().sprite = UnMute;
+        }
+        else
+        {
+            if (PlayerPrefs.GetInt("Volume")==1)
+            {
+                AudioListener.volume = 1;
+                PlayerPrefs.SetInt("Volume",1);
+                hudController.volToggle.GetComponent<Toggle>().isOn = true;
+
+            //    soundButton.GetComponent<Image>().sprite = UnMute;
+            }
+            if (PlayerPrefs.GetInt("Volume")==0)
+            {
+                AudioListener.volume = 0;
+                hudController.volToggle.GetComponent<Toggle>().isOn = false;
+
+                PlayerPrefs.SetInt("Volume",0);
+             //   soundButton.GetComponent<Image>().sprite = Mute;
+            }
+        }
+
+
+       
+        
+    }
 
     #endregion
 
