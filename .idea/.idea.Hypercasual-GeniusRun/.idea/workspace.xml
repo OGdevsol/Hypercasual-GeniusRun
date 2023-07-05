@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b9dddfc-948d-4d1c-bdbe-c0d74968d41e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Hypercasual-GeniusRun/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Hypercasual-GeniusRun/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameplayController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameplayController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/HUDController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/HUDController.cs" afterDir="false" />
-    </list>
+    <list default="true" id="8b9dddfc-948d-4d1c-bdbe-c0d74968d41e" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -88,7 +84,7 @@
       <option name="presentableId" value="Default" />
       <updated>1687719321036</updated>
       <workItem from="1687719321048" duration="2366000" />
-      <workItem from="1688415548539" duration="1220000" />
+      <workItem from="1688415548539" duration="1811000" />
     </task>
     <servers />
   </component>
