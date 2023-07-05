@@ -18,6 +18,7 @@ public class HUDController : MonoBehaviour
     public TMP_Text wrongAnswersValue;
 
     public GameObject volToggle;
+    
 
     public virtual void Pause(GameObject pausePanelParam)
     {

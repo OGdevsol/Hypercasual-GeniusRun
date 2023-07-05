@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b9dddfc-948d-4d1c-bdbe-c0d74968d41e" name="Changes" comment="" />
+    <list default="true" id="8b9dddfc-948d-4d1c-bdbe-c0d74968d41e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Hypercasual-GeniusRun/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Hypercasual-GeniusRun/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Fonts/TitanOne-Regular SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Fonts/TitanOne-Regular SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MainMenuUIController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MainMenuUIController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/HUDController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/HUDController.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -85,6 +91,7 @@
       <updated>1687719321036</updated>
       <workItem from="1687719321048" duration="2366000" />
       <workItem from="1688415548539" duration="1811000" />
+      <workItem from="1688540865932" duration="1578000" />
     </task>
     <servers />
   </component>
