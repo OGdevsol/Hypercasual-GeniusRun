@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
+using Button = UnityEngine.UI.Button;
 
 public class HUDController : MonoBehaviour
 {
@@ -17,7 +18,10 @@ public class HUDController : MonoBehaviour
     public TMP_Text correctAnswersValue;
     public TMP_Text wrongAnswersValue;
 
-    public GameObject volToggle;
+    public Button soundButton;
+   [SerializeField] public Sprite Mute;
+    [SerializeField] public Sprite Unmute;
+    
     
 
     public virtual void Pause(GameObject pausePanelParam)

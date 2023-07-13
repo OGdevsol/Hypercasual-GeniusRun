@@ -21,21 +21,22 @@ public class GameplayController : MonoBehaviour
     public GameObject onBikeSitParticle;
 
 
-    [HideInInspector] public List<Spawnables>
+  [HideInInspector]  public List<Spawnables>
         questionsInLevel; // List for current level questions to perform individual operations and win loss logic
 
     private HUDController hudController;
+    
 
     #region AudioSources
-
     public AudioSource winSound;
     public AudioSource loseSound;
     public AudioSource onAnswerCorrectSound;
     public AudioSource onAnswerWrongSound;
     public AudioSource runningSound;
     public AudioSource explosionSound;
-
     #endregion
+   
+
 
 
     #region DataFlowControlVariables
@@ -43,9 +44,8 @@ public class GameplayController : MonoBehaviour
     private int currentLevelHolderVar;
     private int correctAnswers;
     private int wrongAnswers;
-
     #endregion
-
+    
     #region GameplayLogic
 
     private void Awake()
@@ -59,6 +59,11 @@ public class GameplayController : MonoBehaviour
 
         Debug.Log("QuestionsPref" + PlayerPrefs.GetFloat("LevelQuestions"));
         Time.timeScale = 1;
+      
+    }
+
+    private void OnEnable()
+    {
         CheckVolumeSettings();
     }
 
@@ -106,7 +111,7 @@ public class GameplayController : MonoBehaviour
         {
             onAnswerWrongSound.Play();
             Handheld.Vibrate();
-
+ 
             Debug.Log("WrongAnswer");
             Instantiate(onAnswerParticle, other.transform.position,
                 other.transform.rotation);
@@ -143,8 +148,9 @@ public class GameplayController : MonoBehaviour
 
     private void CheckWinningCondition()
     {
+        
         float correctPerc = GetCorrectAnswers() / GetLevelQuestions() * 100;
-
+        
 
         switch (correctPerc)
         {
@@ -162,7 +168,7 @@ public class GameplayController : MonoBehaviour
     private void LevelWinSequence()
     {
         SetMaxLevelReached(); //Set only if level completed
-
+      
         Vector3 offSet = new Vector3(0, 0, 3);
         levelsData[GetCurrentLevel()].levelPlayer.SetActive(false);
         levelsData[GetCurrentLevel()].levelPlayer.transform.gameObject.GetComponentInParent<PathFollower>().speed = 25f;
@@ -172,21 +178,24 @@ public class GameplayController : MonoBehaviour
         DisableQuestions();
         runningSound.Stop();
         hudController.pauseButton.SetActive(false);
-        StartCoroutine(ActivatePanel(hudController.winPanel, winSound));
+        StartCoroutine(ActivatePanel(hudController.winPanel,winSound));
+        
+      
     }
 
     private void LevelFailSequence()
     {
+      
         levelsData[GetCurrentLevel()].levelPlayer.GetComponent<Animator>().Play("Sad");
         FindObjectOfType<PlayerMovement>().enabled = false;
         FindObjectOfType<PathFollower>().enabled = false;
         DisableQuestions();
         runningSound.Stop();
         hudController.pauseButton.SetActive(false);
-        StartCoroutine(ActivatePanel(hudController.losePanel, loseSound));
+        StartCoroutine(ActivatePanel(hudController.losePanel,loseSound));
     }
 
-    private IEnumerator ActivatePanel(GameObject panel, AudioSource audioType)
+    private IEnumerator ActivatePanel(GameObject panel , AudioSource audioType)
     {
         yield return new WaitForSeconds(4f);
         audioType.Play();
@@ -248,14 +257,15 @@ public class GameplayController : MonoBehaviour
     void SetMaxLevelReached()
     {
         Debug.Log("Current level is" + GetCurrentLevel() + "MAX Level is" + GetMaxLevelReached());
-        if (GetCurrentLevel() < 9)
+        if (GetCurrentLevel()<9)
         {
-            PlayerPrefs.SetInt("MaxLevel", GetCurrentLevel() + 1);
+            PlayerPrefs.SetInt("MaxLevel", GetCurrentLevel()+1);
         }
-        else if (GetCurrentLevel() >= 9)
+        else if (GetCurrentLevel()>=9)
         {
             PlayerPrefs.SetInt("MaxLevel", 9);
         }
+       
     }
 
     int GetMaxLevelReached()
@@ -288,7 +298,7 @@ public class GameplayController : MonoBehaviour
     {
         hudController.inGameloadingPanel.SetActive(true);
         yield return new WaitForSecondsRealtime(loadingTime);
-        if (GetCurrentLevel() < 9)
+        if (GetCurrentLevel()<9)
         {
             SetCurrentLevel(GetCurrentLevel() + 1);
         }
@@ -296,7 +306,7 @@ public class GameplayController : MonoBehaviour
         {
             SetCurrentLevel(0);
         }
-
+        
         SceneManager.LoadScene(1);
     }
 
@@ -306,58 +316,103 @@ public class GameplayController : MonoBehaviour
 
     public void volumebuttonclick()
     {
-        if (AudioListener.volume == 0)
+        Debug.Log(PlayerPrefs.GetInt("Volume"));
+        /*if (PlayerPrefs.GetInt("Volume")==0)
         {
             AudioListener.volume = 1;
-            PlayerPrefs.SetInt("Volume", 1);
+            PlayerPrefs.SetInt("Volume",1);
             hudController.volToggle.GetComponent<Toggle>().isOn = true;
 
-            //   soundButton.GetComponent<Image>().sprite = UnMute;
+         //   soundButton.GetComponent<Image>().sprite = UnMute;
 
             //  UnMute.SetActive(true);
             //  Mute.SetActive(false);
+
+        }
+        if (PlayerPrefs.GetInt("Volume")==1)
+        {
+            AudioListener.volume = 0;
+            PlayerPrefs.SetInt("Volume",0);
+            hudController.volToggle.GetComponent<Toggle>().isOn = false;
+
+           // soundButton.GetComponent<Image>().sprite = Mute;
+            //  Mute.SetActive(true);
+            // UnMute.SetActive(false);
+        }*/
+        if (AudioListener.volume==0)
+        {
+            AudioListener.volume = 1;
+            PlayerPrefs.SetInt("Volume",1);
+            hudController.soundButton.GetComponent<UnityEngine.UI.Image>().sprite = hudController.Unmute;
+
+           
+
         }
         else if (AudioListener.volume == 1)
         {
             AudioListener.volume = 0;
-            PlayerPrefs.SetInt("Volume", 0);
-            hudController.volToggle.GetComponent<Toggle>().isOn = false;
-
-            // soundButton.GetComponent<Image>().sprite = Mute;
-            //  Mute.SetActive(true);
-            // UnMute.SetActive(false);
+            PlayerPrefs.SetInt("Volume",0);
+            hudController.soundButton.GetComponent<UnityEngine.UI.Image>().sprite = hudController.Mute;
+           
         }
+        
     }
 
     public void CheckVolumeSettings()
     {
-        if (!PlayerPrefs.HasKey("Volume"))
+
+        /*if (!PlayerPrefs.HasKey("Volume"))
         {
             AudioListener.volume = 1;
-            PlayerPrefs.SetInt("Volume", 1);
+            PlayerPrefs.SetInt("Volume",1);
             hudController.volToggle.GetComponent<Toggle>().isOn = true;
             //   soundButton.GetComponent<Image>().sprite = UnMute;
         }
-        else
-        {
-            if (PlayerPrefs.GetInt("Volume") == 1)
+        
+        
+            if (PlayerPrefs.GetInt("Volume")==1)
             {
                 AudioListener.volume = 1;
-                PlayerPrefs.SetInt("Volume", 1);
+                PlayerPrefs.SetInt("Volume",1);
                 hudController.volToggle.GetComponent<Toggle>().isOn = true;
 
-                //    soundButton.GetComponent<Image>().sprite = UnMute;
+            //    soundButton.GetComponent<Image>().sprite = UnMute;
             }
-
-            if (PlayerPrefs.GetInt("Volume") == 0)
+            if (PlayerPrefs.GetInt("Volume")==0)
             {
                 AudioListener.volume = 0;
                 hudController.volToggle.GetComponent<Toggle>().isOn = false;
 
-                PlayerPrefs.SetInt("Volume", 0);
-                //   soundButton.GetComponent<Image>().sprite = Mute;
+                PlayerPrefs.SetInt("Volume",0);
+             //   soundButton.GetComponent<Image>().sprite = Mute;
+            }*/
+        
+        if (!PlayerPrefs.HasKey("Volume"))
+        {
+            AudioListener.volume = 1;
+            PlayerPrefs.SetInt("Volume",1);
+            hudController.soundButton.GetComponent<UnityEngine.UI.Image>().sprite = hudController.Unmute;
+        }
+        else
+        {
+            if (PlayerPrefs.GetInt("Volume")==1)
+            {
+                AudioListener.volume = 1;
+                PlayerPrefs.SetInt("Volume",1);
+                hudController.soundButton.GetComponent<UnityEngine.UI.Image>().sprite = hudController.Unmute;
+            }
+            if (PlayerPrefs.GetInt("Volume")==0)
+            {
+                AudioListener.volume = 0;
+                PlayerPrefs.SetInt("Volume",0);
+                hudController.soundButton.GetComponent<UnityEngine.UI.Image>().sprite = hudController.Mute;
             }
         }
+        
+
+
+       
+        
     }
 
     #endregion
