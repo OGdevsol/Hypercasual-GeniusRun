@@ -307,7 +307,7 @@ public class GameplayController : MonoBehaviour
             SetCurrentLevel(0);
         }
         
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
 
     #endregion

@@ -299,7 +299,7 @@ public class AdsController : MonoBehaviour
 
     private void HandleRewardedAdLoaded(object sender, EventArgs e)
     {
-        throw new NotImplementedException();
+      Debug.Log("Rewarded Loaded");
     }
     
     #endregion

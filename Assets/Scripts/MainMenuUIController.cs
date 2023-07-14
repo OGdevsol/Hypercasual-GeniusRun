@@ -10,19 +10,21 @@ public class MainMenuUIController : MonoBehaviour
     [SerializeField] private List<GameObject> references;
 
     [SerializeField] private Button[] levelButtons;
-  //  [SerializeField] private GameObject mainMenuVolToggle;
+
     [SerializeField] private GameObject mainMenuVolButton;
     [SerializeField] private GameObject loadingScreen;
     [SerializeField] private Sprite unLockLevelBackground;
     [SerializeField] private Sprite Mute;
     [SerializeField] private Sprite Unmute;
+    [SerializeField] private AudioSource music;
+    [SerializeField] private AudioSource clickSound;
 
 
     private void Awake()
     {
         CheckVolumeSettings();
        
-        // PlayerPrefs.SetInt("MaxLevel", 9);
+       
         Debug.LogError(GetMaxLevelReached());
     }
 
@@ -35,22 +37,26 @@ public class MainMenuUIController : MonoBehaviour
 
     public void PrivacyPolicy()
     {
+        clickSound.Play();
         Application.OpenURL("https://lucidtecstudio.blogspot.com/2023/05/privacy-policy.html");
     }
 
     public void MoreGames()
     {
+        clickSound.Play();
         Application.OpenURL("https://play.google.com/store/apps/developer?id=Lucidtec+Studio");
     }
 
     public void RateUs()
     {
+        clickSound.Play();
         Application.OpenURL("https://play.google.com/store/apps/details?id=com.ls.Scattergories.runnergames.quizgames");
     }
 
 
     public void ActivateUIReference(int index)
     {
+       
         int i;
         int referencesLength = references.Count;
 
@@ -60,6 +66,7 @@ public class MainMenuUIController : MonoBehaviour
         }
 
         references[index].SetActive(true);
+        clickSound.Play();
     }
 
     void UnlockLevels()
@@ -102,33 +109,16 @@ public class MainMenuUIController : MonoBehaviour
 
     public void OnCLickPlay()
     {
+        clickSound.Play();
         LoadLevel(GetMaxLevelReached());
     }
 
     public void volumebuttonclick()
     {
+        
         Debug.Log(PlayerPrefs.GetInt("Volume"));
         
-        /*if (PlayerPrefs.GetInt("Volume")==0)
-        {
-            AudioListener.volume = 1;
-            PlayerPrefs.SetInt("Volume",1);
-            mainMenuVolButton.GetComponent<Image>().sprite = Unmute;
-           
-
-          
-
-        }
-
-        if (PlayerPrefs.GetInt("Volume") == 1)
-        {
-            AudioListener.volume = 0;
-            PlayerPrefs.SetInt("Volume", 0);
-            mainMenuVolButton.GetComponent<Image>().sprite = Mute;
-
-            
-           
-        }*/
+       
         
             if (AudioListener.volume==0)
             {
@@ -136,8 +126,6 @@ public class MainMenuUIController : MonoBehaviour
                 PlayerPrefs.SetInt("Volume",1);
                 mainMenuVolButton.GetComponent<Image>().sprite = Unmute;
 
-                //  UnMute.SetActive(true);
-                //  Mute.SetActive(false);
 
             }
             else if (AudioListener.volume == 1)
@@ -145,8 +133,7 @@ public class MainMenuUIController : MonoBehaviour
                 AudioListener.volume = 0;
                 PlayerPrefs.SetInt("Volume",0);
                 mainMenuVolButton.GetComponent<Image>().sprite = Mute;
-                //  Mute.SetActive(true);
-                // UnMute.SetActive(false);
+               
             }
         
         
@@ -155,36 +142,7 @@ public class MainMenuUIController : MonoBehaviour
 
     public void CheckVolumeSettings()
     {
-        /*if (!PlayerPrefs.HasKey("Volume"))
-        {
-           
-            PlayerPrefs.SetInt("Volume",1);
-            mainMenuVolButton.GetComponent<Image>().sprite = Unmute;
-
-             AudioListener.volume = 1;
-           
-        }
-        
-        
-        if (PlayerPrefs.GetInt("Volume")==1)
-        {
-           
-            PlayerPrefs.SetInt("Volume",1);
-            mainMenuVolButton.GetComponent<Image>().sprite = Unmute;
-
-             AudioListener.volume = 1;
-
-            
-        }
-        if (PlayerPrefs.GetInt("Volume")==0)
-        {
-           
-            mainMenuVolButton.GetComponent<Image>().sprite = Mute;
-
-            PlayerPrefs.SetInt("Volume",0);
-            AudioListener.volume = 0;
-            
-        }*/
+       
         
         if (!PlayerPrefs.HasKey("Volume"))
         {
