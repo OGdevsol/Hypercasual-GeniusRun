@@ -30,6 +30,7 @@ public class MainMenuUIController : MonoBehaviour
     {
         CheckVolumeSettings();
         UnlockLevels();
+        AdsController.instance.ShowInterStitialAdmob();
     }
 
     public void PrivacyPolicy()
@@ -75,7 +76,7 @@ public class MainMenuUIController : MonoBehaviour
     {
         loadingScreen.SetActive(true);
         yield return new WaitForSecondsRealtime(loadingTime);
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
 
     public void LoadLevel(int currentLevel)
