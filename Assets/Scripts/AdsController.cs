@@ -20,7 +20,7 @@ public class AdsController : MonoBehaviour
     public string AppOpenAdId = "unused";
     public string InterstitialAdId = "unused";
     public string RewardedAdId = "unused";
-    
+
 /*
 #if UNITY_EDITOR
     private string _adUnitId = "unused";
@@ -31,14 +31,22 @@ public class AdsController : MonoBehaviour
 #endif*/
     RewardedAd rewardedAd;
     BannerView _bannerView;
-    InterstitialAd interstitial; 
+    InterstitialAd interstitial;
+
     AppOpenAd _appOpenAd;
+
     // Start is called before the first frame update
     private void Awake()
     {
-        if (instance==null)
+        if (instance == null)
         {
             instance = this;
+        }
+        if(Application.internetReachability == NetworkReachability.NotReachable)
+        {
+            Destroy(this);
+            return;
+            
         }
         DontDestroyOnLoad(this);
     }
@@ -46,24 +54,15 @@ public class AdsController : MonoBehaviour
     void Start()
     {
        
-        
         // Initialize the Google Mobile Ads SDK.
         MobileAds.Initialize((InitializationStatus initStatus) =>
         {
-            MobileAdsEventExecutor.ExecuteInUpdate(() =>
-            {
-                CreateAdmobInterstitial();
-              
-
-               
-      
-            });
+            MobileAdsEventExecutor.ExecuteInUpdate(() => { CreateAdmobInterstitial(); });
         });
         //CreateAdmobSmartBanner();
-       
+
         CreateAndLoadAdmobRewardedAd();
         RequestAppOpenAd();
-
     }
 
     private void Update()
@@ -87,7 +86,7 @@ public class AdsController : MonoBehaviour
     {
         return new AdRequest.Builder().Build();
     }
-    
+
     public void CreateAdmobSmartBanner()
     {
         Debug.Log("Creating banner view");
@@ -101,7 +100,6 @@ public class AdsController : MonoBehaviour
         // Create a 320x50 banner at top of the screen
         _bannerView = new BannerView(BannerAdId, AdSize.SmartBanner, AdPosition.Top);
         _bannerView.LoadAd(CreateAdRequest());
-        
     }
     /*public void CreateAppOpenAd()
     {
@@ -121,7 +119,6 @@ public class AdsController : MonoBehaviour
 
     #region AdmobInterstitial
 
-    
     public void CreateAdmobInterstitial()
     {
         interstitial = new InterstitialAd(InterstitialAdId);
@@ -134,28 +131,25 @@ public class AdsController : MonoBehaviour
         }
 
         // Create a 320x50 banner at top of the screen
-       
-        
-        
-                // Called when an ad request has successfully loaded.
-                interstitial.OnAdLoaded += HandleInterstitialLoaded;
-                
-                interstitial.OnAdFailedToLoad += HandleInterstitialFailedtoLoad;
-                // Called when an ad request failed to load.
-                // rewardedAd.OnAdFailedToLoad += HandleRewardedAdFailedToLoad;
-                // Called when an ad is shown.
-                interstitial.OnAdOpening += HandleInterstitialAdOpening;
-                // Called when an ad request failed to show.
-                interstitial.OnAdFailedToShow += HandleInterstitialFailedtoshow;
-                // Called when the user should be rewarded for interacting with the ad
-                interstitial.OnAdClosed += HandleInterstitialClosed;
-                AdRequest adRequest = CreateAdRequest();
+
+
+        // Called when an ad request has successfully loaded.
+        interstitial.OnAdLoaded += HandleInterstitialLoaded;
+
+        interstitial.OnAdFailedToLoad += HandleInterstitialFailedtoLoad;
+        // Called when an ad request failed to load.
+        // rewardedAd.OnAdFailedToLoad += HandleRewardedAdFailedToLoad;
+        // Called when an ad is shown.
+        interstitial.OnAdOpening += HandleInterstitialAdOpening;
+        // Called when an ad request failed to show.
+        interstitial.OnAdFailedToShow += HandleInterstitialFailedtoshow;
+        // Called when the user should be rewarded for interacting with the ad
+        interstitial.OnAdClosed += HandleInterstitialClosed;
+        AdRequest adRequest = CreateAdRequest();
         interstitial.LoadAd(adRequest);
         //interstitial.Show();
-        
-       
-        
     }
+
     public void ShowInterStitialAdmob()
     {
         if (interstitial.IsLoaded())
@@ -164,15 +158,16 @@ public class AdsController : MonoBehaviour
         }
         else
         {
-           
         }
-        
-     
-        
     }
+
     private void HandleInterstitialClosed(object sender, EventArgs e)
     {
+        Time.timeScale = 0;
+        Debug.LogError("AdClosedPause");
         CreateAdmobInterstitial();
+        Time.timeScale = 0;
+        ShowSmartBanner();
     }
 
     private void HandleInterstitialFailedtoshow(object sender, AdErrorEventArgs e)
@@ -182,7 +177,7 @@ public class AdsController : MonoBehaviour
 
     private void HandleInterstitialAdOpening(object sender, EventArgs e)
     {
-        Time.timeScale = 0;
+      //  Time.timeScale = 0;
     }
 
     private void HandleInterstitialFailedtoLoad(object sender, AdFailedToLoadEventArgs e)
@@ -192,10 +187,11 @@ public class AdsController : MonoBehaviour
 
     private void HandleInterstitialLoaded(object sender, EventArgs e)
     {
-        Time.timeScale = 1;
+      //  Time.timeScale = 1;
     }
 
-#endregion
+    #endregion
+
     public void DestroyAd()
     {
         if (_bannerView != null)
@@ -205,24 +201,23 @@ public class AdsController : MonoBehaviour
             _bannerView = null;
         }
     }
-    
-    
+
+
     public void ShowSmartBanner()
     {
         CreateAdmobSmartBanner();
 
         //_bannerView.Show();
-    } 
+    }
+
     public void HideSmartBanner()
     {
         if (_bannerView != null)
             _bannerView.Hide();
-      
     }
 
     public void RequestAppOpenAd()
     {
-        
         AppOpenAd.LoadAd(AppOpenAdId, ScreenOrientation.AutoRotation, CreateAdRequest(), (_appOpenAd, error) =>
         {
             if (error != null)
@@ -238,6 +233,7 @@ public class AdsController : MonoBehaviour
             appopentest = false;
         });
     }
+
     public void ShowAppOpenAd()
     {
         if (_appOpenAd != null && !isShowingAd)
@@ -248,9 +244,9 @@ public class AdsController : MonoBehaviour
             RequestAppOpenAd();
         }
     }
+
     public void CreateAndLoadAdmobRewardedAd()
     {
-        
         rewardedAd = new RewardedAd(RewardedAdId);
 
         // Called when an ad request has successfully loaded.
@@ -270,12 +266,9 @@ public class AdsController : MonoBehaviour
         AdRequest request = CreateAdRequest();
         // Load the rewarded ad with the request.
         rewardedAd.LoadAd(request);
-   
     }
 
     #region AdmobRewardedEventHandler
-
-    
 
     private void HandleUserEarnedReward(object sender, Reward e)
     {
@@ -299,20 +292,19 @@ public class AdsController : MonoBehaviour
 
     private void HandleRewardedAdLoaded(object sender, EventArgs e)
     {
-      Debug.Log("Rewarded Loaded");
+        Debug.Log("Rewarded Loaded");
     }
-    
+
     #endregion
-    
+
     public void ShowAdmobRewardedAd()
     {
-  
         if (rewardedAd.IsLoaded())
         {
-           rewardedAd.Show();
-           CreateAndLoadAdmobRewardedAd();
+            rewardedAd.Show();
+            CreateAndLoadAdmobRewardedAd();
         }
-     
+
         else
         {
             CreateAndLoadAdmobRewardedAd();
@@ -320,7 +312,4 @@ public class AdsController : MonoBehaviour
     }
 
     // Update is called once per frame
- 
-   
-  
 }

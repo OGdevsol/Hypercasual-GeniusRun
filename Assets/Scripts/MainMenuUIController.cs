@@ -23,16 +23,34 @@ public class MainMenuUIController : MonoBehaviour
     private void Awake()
     {
         CheckVolumeSettings();
-       
-       
-        Debug.LogError(GetMaxLevelReached());
+        Time.timeScale = 1;
+
+
+    }
+
+    private void Start()
+    {
+        if (AdsController.instance)
+        {
+            AdsController.instance.ShowSmartBanner();
+        }
+      
+        if (AdsController.instance && !PlayerPrefs.HasKey("AppOpen"))
+        {
+           
+            AdsController.instance.ShowAppOpenAd();
+            PlayerPrefs.SetInt("AppOpen",1);
+
+          
+           
+        }
     }
 
     private void OnEnable()
     {
         CheckVolumeSettings();
         UnlockLevels();
-        AdsController.instance.ShowInterStitialAdmob();
+       
     }
 
     public void PrivacyPolicy()
@@ -56,7 +74,6 @@ public class MainMenuUIController : MonoBehaviour
 
     public void ActivateUIReference(int index)
     {
-       
         int i;
         int referencesLength = references.Count;
 
@@ -65,8 +82,18 @@ public class MainMenuUIController : MonoBehaviour
             references[i].SetActive(false);
         }
 
+        if (index==1)
+        {
+            if (AdsController.instance)
+            {
+                AdsController.instance.HideSmartBanner();
+                AdsController.instance.ShowInterStitialAdmob();
+            }
+        }
+
         references[index].SetActive(true);
         clickSound.Play();
+        
     }
 
     void UnlockLevels()
@@ -111,66 +138,61 @@ public class MainMenuUIController : MonoBehaviour
     {
         clickSound.Play();
         LoadLevel(GetMaxLevelReached());
+        AdsController.instance.HideSmartBanner();
     }
 
     public void volumebuttonclick()
     {
-        
         Debug.Log(PlayerPrefs.GetInt("Volume"));
-        
-       
-        
-            if (AudioListener.volume==0)
-            {
-                AudioListener.volume = 1;
-                PlayerPrefs.SetInt("Volume",1);
-                mainMenuVolButton.GetComponent<Image>().sprite = Unmute;
 
 
-            }
-            else if (AudioListener.volume == 1)
-            {
-                AudioListener.volume = 0;
-                PlayerPrefs.SetInt("Volume",0);
-                mainMenuVolButton.GetComponent<Image>().sprite = Mute;
-               
-            }
-        
-        
-
+        if (AudioListener.volume == 0)
+        {
+            AudioListener.volume = 1;
+            PlayerPrefs.SetInt("Volume", 1);
+            mainMenuVolButton.GetComponent<Image>().sprite = Unmute;
+        }
+        else if (AudioListener.volume == 1)
+        {
+            AudioListener.volume = 0;
+            PlayerPrefs.SetInt("Volume", 0);
+            mainMenuVolButton.GetComponent<Image>().sprite = Mute;
+        }
     }
 
     public void CheckVolumeSettings()
     {
-       
-        
         if (!PlayerPrefs.HasKey("Volume"))
         {
             AudioListener.volume = 1;
-            PlayerPrefs.SetInt("Volume",1);
+            PlayerPrefs.SetInt("Volume", 1);
             mainMenuVolButton.GetComponent<Image>().sprite = Unmute;
         }
         else
         {
-            if (PlayerPrefs.GetInt("Volume")==1)
+            if (PlayerPrefs.GetInt("Volume") == 1)
             {
                 AudioListener.volume = 1;
-                PlayerPrefs.SetInt("Volume",1);
+                PlayerPrefs.SetInt("Volume", 1);
                 mainMenuVolButton.GetComponent<Image>().sprite = Unmute;
             }
-            if (PlayerPrefs.GetInt("Volume")==0)
+
+            if (PlayerPrefs.GetInt("Volume") == 0)
             {
                 AudioListener.volume = 0;
-                PlayerPrefs.SetInt("Volume",0);
+                PlayerPrefs.SetInt("Volume", 0);
                 mainMenuVolButton.GetComponent<Image>().sprite = Mute;
             }
         }
-
-
     }
 
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    private void OnApplicationQuit()
+    {
+        PlayerPrefs.DeleteKey("AppOpen");
     }
 }
