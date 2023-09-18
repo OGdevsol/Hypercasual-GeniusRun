@@ -65,7 +65,7 @@ public class GameplayController : MonoBehaviour
 
     private void Start()
     {
-        if (AdsController.instance)
+        if (AdsController.instance!=null)
         {
             AdsController.instance.ShowSmartBanner();
         }
@@ -208,7 +208,7 @@ public class GameplayController : MonoBehaviour
         yield return new WaitForSeconds(4f);
         audioType.Play();
         panel.SetActive(true);
-        if (AdsController.instance)
+        if (AdsController.instance!=null)
         {
             AdsController.instance.HideSmartBanner();
             AdsController.instance.ShowInterStitialAdmob();

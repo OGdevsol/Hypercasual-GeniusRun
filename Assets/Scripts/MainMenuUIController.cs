@@ -30,12 +30,12 @@ public class MainMenuUIController : MonoBehaviour
 
     private void Start()
     {
-        if (AdsController.instance)
+        if (AdsController.instance!=null)
         {
             AdsController.instance.ShowSmartBanner();
         }
       
-        if (AdsController.instance && !PlayerPrefs.HasKey("AppOpen"))
+        if (AdsController.instance!=null && !PlayerPrefs.HasKey("AppOpen"))
         {
            
             AdsController.instance.ShowAppOpenAd();
@@ -84,10 +84,10 @@ public class MainMenuUIController : MonoBehaviour
 
         if (index==1)
         {
-            if (AdsController.instance)
+            if (AdsController.instance!=null)
             {
                 AdsController.instance.HideSmartBanner();
-                AdsController.instance.ShowInterStitialAdmob();
+               // AdsController.instance.ShowInterStitialAdmob();
             }
         }
 
@@ -138,7 +138,12 @@ public class MainMenuUIController : MonoBehaviour
     {
         clickSound.Play();
         LoadLevel(GetMaxLevelReached());
-        AdsController.instance.HideSmartBanner();
+        if (AdsController.instance != null)
+        {
+            AdsController.instance.HideSmartBanner();
+        }
+
+      
     }
 
     public void volumebuttonclick()

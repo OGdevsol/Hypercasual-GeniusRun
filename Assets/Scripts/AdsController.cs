@@ -156,9 +156,7 @@ public class AdsController : MonoBehaviour
         {
             interstitial.Show();
         }
-        else
-        {
-        }
+      
     }
 
     private void HandleInterstitialClosed(object sender, EventArgs e)
