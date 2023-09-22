@@ -9,7 +9,8 @@ using UnityEngine.SceneManagement;
 public class CollisionTest : MonoBehaviour
 
 {
-   public GameplayController gameController;
+   [HideInInspector] public GameplayController gameController;
+   private TMP_Text answerText;
    private void Awake()
    {
      
@@ -17,7 +18,7 @@ public class CollisionTest : MonoBehaviour
       gameController = FindObjectOfType<GameplayController>();
    }
 
-   [SerializeField]private TMP_Text answerText;
+ 
    
    private void OnTriggerEnter(Collider other)
 

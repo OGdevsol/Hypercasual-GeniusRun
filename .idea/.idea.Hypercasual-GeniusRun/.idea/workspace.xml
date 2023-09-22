@@ -6,29 +6,34 @@
   <component name="ChangeListManager">
     <list default="true" id="8b9dddfc-948d-4d1c-bdbe-c0d74968d41e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Hypercasual-GeniusRun/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Hypercasual-GeniusRun/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GoogleMobileAds/GoogleMobileAds.Android.dll.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GoogleMobileAds/GoogleMobileAds.Android.dll.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GoogleMobileAds/GoogleMobileAds.Common.dll.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GoogleMobileAds/GoogleMobileAds.Common.dll.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GoogleMobileAds/GoogleMobileAds.Core.dll.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GoogleMobileAds/GoogleMobileAds.Core.dll.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GoogleMobileAds/GoogleMobileAds.Unity.dll.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GoogleMobileAds/GoogleMobileAds.Unity.dll.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GoogleMobileAds/GoogleMobileAds.dll.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GoogleMobileAds/GoogleMobileAds.dll.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GoogleMobileAds/GoogleMobileAds.iOS.dll.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GoogleMobileAds/GoogleMobileAds.iOS.dll.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GoogleMobileAds/Resources/GoogleMobileAdsSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GoogleMobileAds/Resources/GoogleMobileAdsSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Player.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Player.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/RoadTop.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/RoadTop.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.lifecycle.lifecycle-process-2.4.1.aar" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.lifecycle.lifecycle-process-2.4.1.aar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.startup.startup-runtime-1.1.1.aar" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.startup.startup-runtime-1.1.1.aar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.work.work-runtime-2.7.0.aar" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.work.work-runtime-2.7.0.aar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-ads-lite-21.0.0.aar" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-ads-lite-21.0.0.aar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AnimationsData/Bike.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AnimationsData/Bike.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AnimationsData/BikeWin.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AnimationsData/BikeWin.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AnimationsData/Fast Run.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AnimationsData/Fast Run.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AnimationsData/New Animator Controller.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AnimationsData/New Animator Controller.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AnimationsData/Player.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AnimationsData/Player.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AnimationsData/Player.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AnimationsData/Player.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AnimationsData/PlayerPrefab.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AnimationsData/RUN.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AnimationsData/RUN.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AnimationsData/Riding.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AnimationsData/Riding.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AnimationsData/Sad Idle.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AnimationsData/Sad Idle.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AnimationsData/Sad.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AnimationsData/Sad.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AnimationsData/Victory.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AnimationsData/Victory.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AnimationsData/VictoryStanding.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AnimationsData/VictoryStanding.anim.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Gameplay.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Gameplay.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Splash.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Splash.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AdsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AdsController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CollisionTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CollisionTest.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameplayController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameplayController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MainMenuUIController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MainMenuUIController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,6 +132,7 @@
       <workItem from="1692865090634" duration="754000" />
       <workItem from="1693210836836" duration="3715000" />
       <workItem from="1695032146480" duration="337000" />
+      <workItem from="1695114820114" duration="2167000" />
     </task>
     <servers />
   </component>
@@ -146,6 +152,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
