@@ -6,33 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="8b9dddfc-948d-4d1c-bdbe-c0d74968d41e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Hypercasual-GeniusRun/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Hypercasual-GeniusRun/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AnimationsData/Bike.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AnimationsData/Bike.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AnimationsData/BikeWin.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AnimationsData/BikeWin.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AnimationsData/Fast Run.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AnimationsData/Fast Run.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AnimationsData/New Animator Controller.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AnimationsData/New Animator Controller.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AnimationsData/Player.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AnimationsData/Player.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AnimationsData/Player.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AnimationsData/Player.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AnimationsData/PlayerPrefab.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AnimationsData/RUN.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AnimationsData/RUN.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AnimationsData/Riding.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AnimationsData/Riding.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AnimationsData/Sad Idle.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AnimationsData/Sad Idle.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AnimationsData/Sad.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AnimationsData/Sad.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AnimationsData/Victory.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AnimationsData/Victory.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AnimationsData/VictoryStanding.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AnimationsData/VictoryStanding.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Gameplay.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Gameplay.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CollisionTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CollisionTest.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameplayController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameplayController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -133,6 +106,8 @@
       <workItem from="1693210836836" duration="3715000" />
       <workItem from="1695032146480" duration="337000" />
       <workItem from="1695114820114" duration="2167000" />
+      <workItem from="1696917698374" duration="17000" />
+      <workItem from="1696917783066" duration="237000" />
     </task>
     <servers />
   </component>

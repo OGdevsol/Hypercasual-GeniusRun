@@ -100,8 +100,8 @@ public class GameplayController : MonoBehaviour
 
 
     public virtual void
-        OnAnswer(Collider other) // Keep it virtual to override in other classes for more functionality over "When giving answers"
-        // Such as cosmetic effects and animations in other classes for every time answer is given
+        OnAnswer(Collider other) 
+        // Have more control Such as cosmetic effects and animations in other classes for every time answer is given
     {
         if (other.CompareTag("Correct"))
         {
